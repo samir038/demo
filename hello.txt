@@ -3,5 +3,8 @@ ihello
 test demo
 
 
+<<<<<<< HEAD
 
 2bd time
+=======
+changed in site
