@@ -1,7 +1,7 @@
 name: Purge Branches
 on:
   schedule:
-    - cron: '30 9 * * *' # every day @ 10 AM UTC
+    - cron: '05 03 * * *' # every day @ 10 AM UTC
 jobs:
   purgeBranches:
     runs-on: ubuntu-latest
