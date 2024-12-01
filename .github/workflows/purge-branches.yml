@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Purge and Notify Branches
-        uses: gita-vahdatinia/purge-branchn@v1
+        uses: gita-vahdatinia/purge-branch@v1
         with:
           token: ${{ secrets.MY_TOKEN }}   # Your GitHub personal access token
           days-to-notify: 1               # Notify branches 1 day before deletion
