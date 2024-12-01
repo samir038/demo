@@ -1,14 +1,26 @@
 name: Purge Branches
+
 on:
+  # Allow manual triggering of the workflow
+  workflow_dispatch:
+  
+  # Scheduled execution - Every day at 10 AM IST (3:30 AM UTC)
   schedule:
-    - cron: '10 03 * * *' # every day @ 10 AM UTC
+    - cron: '00 03 * * *'
+
 jobs:
   purgeBranches:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to delete branches
+
     steps:
-      - name: Delete & Notify Branches
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Purge and Notify Branches
         uses: gita-vahdatinia/purge-branchn@v1
         with:
-            token: ${{ secrets.MY_TOKEN }}
-            days-to-notify: 1
-            days-to-delete: 5
+          token: ${{ secrets.MY_TOKEN }}   # Your GitHub personal access token
+          days-to-notify: 1               # Notify branches 1 day before deletion
+          days-to-delete: 5               # Delete branches older than 5 days
